@@ -35,7 +35,7 @@ These metrics are logged to a CSV file and synced to a Google Sheets document fo
 1. **Clone the repo**
 ```bash
 git clone https://github.com/ChristianToro/RaspPi_WebConnex.git
-cd internet-monitor
+cd RaspPi_WebConnex
 ```
 
 2. **Install dependencies**
