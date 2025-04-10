@@ -101,4 +101,4 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Created by [Christian Toro]. Contributions welcome!
+Created by [Christian Toro](https://github.com/ChristianToro). Contributions welcome!
