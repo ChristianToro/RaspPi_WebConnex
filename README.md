@@ -34,7 +34,7 @@ These metrics are logged to a CSV file and synced to a Google Sheets document fo
 
 1. **Clone the repo**
 ```bash
-git clone https://github.com/yourusername/internet-monitor.git
+git clone https://github.com/ChristianToro/RaspPi_WebConnex.git
 cd internet-monitor
 ```
 
@@ -101,4 +101,4 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Created by [Your Name]. Contributions welcome!
+Created by [Christian Toro]. Contributions welcome!
