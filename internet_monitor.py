@@ -3,8 +3,8 @@ import subprocess
 import datetime
 import csv
 import os
-# import gspread
-# from oauth2client.service_account import ServiceAccountCredentials
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 # CONFIG
 CSV_FILE = 'internet_log.csv'
@@ -43,21 +43,21 @@ def log_to_csv(data):
             writer.writerow(['Timestamp', 'Ping (ms)', 'Download (Mbps)', 'Upload (Mbps)', 'Packet Loss (%)'])
         writer.writerow(data)
 
-# Sync CSV to Google Sheets
-# def sync_to_google_sheets():
-#     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-#     creds = ServiceAccountCredentials.from_json_keyfile_name(CREDS_FILE, scope)
-#     client = gspread.authorize(creds)
+Sync CSV to Google Sheets
+def sync_to_google_sheets():
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name(CREDS_FILE, scope)
+    client = gspread.authorize(creds)
     
-#     try:
-#         sheet = client.open(SPREADSHEET_NAME).sheet1
-#     except gspread.exceptions.SpreadsheetNotFound:
-#         sheet = client.create(SPREADSHEET_NAME).sheet1
+    try:
+        sheet = client.open(SPREADSHEET_NAME).sheet1
+    except gspread.exceptions.SpreadsheetNotFound:
+        sheet = client.create(SPREADSHEET_NAME).sheet1
     
-#     sheet.clear()
-#     with open(CSV_FILE, 'r') as f:
-#         content = list(csv.reader(f))
-#         sheet.update('A1', content)
+    sheet.clear()
+    with open(CSV_FILE, 'r') as f:
+        content = list(csv.reader(f))
+        sheet.update('A1', content)
 
 def main():
     timestamp = datetime.datetime.now().isoformat()
@@ -68,7 +68,7 @@ def main():
     print("Logging:", data)
     
     log_to_csv(data)
-    # sync_to_google_sheets()
+    sync_to_google_sheets()
 
 if __name__ == '__main__':
     main()
